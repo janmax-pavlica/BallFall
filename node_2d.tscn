@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cibrkwggfafdw"]
+
+[sub_resource type="Curve" id="Curve_fcuwr"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_w4dek"]
+texture_mode = 1
+curve = SubResource("Curve_fcuwr")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = SubResource("CurveTexture_w4dek")
+polygon = PackedVector2Array(5, 0, 9, 17, 20, 24, 31, 26, 31, 30, 0, 30, 0, 0)
+polygons = [Vector3(22, 33, 4), null, null]

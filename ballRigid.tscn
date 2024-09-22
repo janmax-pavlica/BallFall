@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dexopo6tugs8k"]
+
+[ext_resource type="Script" path="res://scripts/ball_rigid.gd" id="1_3ujkg"]
+[ext_resource type="Texture2D" uid="uid://coaclgdoiymfa" path="res://images/ball.svg" id="1_sp1ju"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hj1oe"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qi8f"]
+radius = 10.0499
+
+[node name="osBallRigid" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_hj1oe")
+sleeping = true
+script = ExtResource("1_3ujkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sp1ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4qi8f")

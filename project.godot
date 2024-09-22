@@ -11,5 +11,18 @@ config_version=5
 [application]
 
 config/name="BallFall"
+run/main_scene="res://scenes/game_world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
+
+[editor]
+
+version_control/autoload_on_startup=true
+
+[global_group]
+
+droppable=""

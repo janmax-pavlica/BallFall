@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://mnlmo80elrkj"]
+
+[ext_resource type="PackedScene" uid="uid://bbm7cs2lhyimp" path="res://rampStatic.tscn" id="1_odbwl"]
+
+[node name="Ramp" type="Node2D"]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("1_odbwl")]

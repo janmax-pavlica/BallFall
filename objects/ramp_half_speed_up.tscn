@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctbpgm861lwvi"]
+
+[ext_resource type="Script" path="res://objects/ramp_half_speed_up.gd" id="1_ji4tv"]
+[ext_resource type="Texture2D" uid="uid://beygwdgeq1vp0" path="res://images/ramp_half_speed_up.svg" id="2_24da8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jln1v"]
+size = Vector2(64, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atocf"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnshk"]
+size = Vector2(57, 10)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(32, 32)
+script = ExtResource("1_ji4tv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 27)
+shape = SubResource("RectangleShape2D_jln1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_24da8")
+
+[node name="Area2D" type="Area2D" parent="." groups=["droppable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_atocf")
+
+[node name="SpeedArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedArea"]
+position = Vector2(-0.5, 21)
+shape = SubResource("RectangleShape2D_vnshk")
+
+[connection signal="body_shape_entered" from="SpeedArea" to="." method="_on_speed_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="SpeedArea" to="." method="_on_speed_area_body_shape_exited"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://global.gd" id="1_pmqr6"]
 [ext_resource type="PackedScene" uid="uid://dexopo6tugs8k" path="res://ballRigid.tscn" id="2_v00qj"]
 [ext_resource type="PackedScene" uid="uid://bbm7cs2lhyimp" path="res://rampStatic.tscn" id="4_5gufp"]
-[ext_resource type="PackedScene" uid="uid://bgrq435eulbp8" path="res://sprite_2d.tscn" id="7_uyvee"]
+[ext_resource type="PackedScene" uid="uid://ctbpgm861lwvi" path="res://objects/ramp_half_speed_up.tscn" id="7_go4in"]
 [ext_resource type="PackedScene" uid="uid://b71ob787ku8ii" path="res://objects/buttonReset.tscn" id="8_3j1j6"]
 [ext_resource type="PackedScene" uid="uid://cdrwnqegniito" path="res://objects/buttonStart.tscn" id="8_kdu40"]
 
@@ -56,16 +56,38 @@ shape = SubResource("RectangleShape2D_32laj")
 position = Vector2(1472, 384)
 shape = SubResource("RectangleShape2D_wuyd3")
 
-[node name="Button" parent="." instance=ExtResource("8_kdu40")]
-metadata/_edit_use_anchors_ = true
-
-[node name="Button2" parent="." instance=ExtResource("8_3j1j6")]
-offset_left = 128.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 64.0
 offset_right = 192.0
+offset_bottom = 152.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="StartButton" parent="Control/HBoxContainer" instance=ExtResource("8_kdu40")]
+layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Sprite2D" parent="." instance=ExtResource("7_uyvee")]
-position = Vector2(512, 320)
+[node name="ResetButton2" parent="Control/HBoxContainer" instance=ExtResource("8_3j1j6")]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("4_5gufp")]
 position = Vector2(320, 320)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("4_5gufp")]
+position = Vector2(320, 256)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("7_go4in")]
+position = Vector2(384, 256)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("4_5gufp")]
+position = Vector2(256, 256)
+rotation = -1.5708
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("7_go4in")]
+position = Vector2(192, 256)

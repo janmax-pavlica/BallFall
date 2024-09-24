@@ -9,7 +9,7 @@ func _ready() -> void:
 	Global.Ball = self
 	position0 = self.position
 	self.freeze = true
-	#print("_process")
+	print("_ready", position0)
 
 
  #Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 	self.freeze = !Global.isStateActive(Global.GameState.RUNNING)
 
 func reset() -> void:
+	
+	print("reset", position0)
 	PhysicsServer2D.body_set_state(
 	get_rid(),
 	PhysicsServer2D.BODY_STATE_TRANSFORM,

@@ -7,7 +7,7 @@ var position0 = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.Ball = self
-	position0 = self.position
+	position0 = self.global_position
 	self.freeze = true
 	print("_ready", position0)
 

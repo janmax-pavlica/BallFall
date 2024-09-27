@@ -1,12 +1,13 @@
-[gd_scene load_steps=13 format=4 uid="uid://bols8jx45jin4"]
+[gd_scene load_steps=18 format=4 uid="uid://bols8jx45jin4"]
 
 [ext_resource type="Texture2D" uid="uid://d4c8uda4q4jc7" path="res://icon.svg" id="1_jpe7d"]
 [ext_resource type="Script" path="res://global.gd" id="1_pmqr6"]
 [ext_resource type="PackedScene" uid="uid://dexopo6tugs8k" path="res://ballRigid.tscn" id="2_v00qj"]
-[ext_resource type="PackedScene" uid="uid://bbm7cs2lhyimp" path="res://rampStatic.tscn" id="4_5gufp"]
+[ext_resource type="PackedScene" uid="uid://bbm7cs2lhyimp" path="res://objects/ramp_static.tscn" id="4_5gufp"]
 [ext_resource type="PackedScene" uid="uid://ctbpgm861lwvi" path="res://objects/ramp_half_speed_up.tscn" id="7_go4in"]
 [ext_resource type="PackedScene" uid="uid://b71ob787ku8ii" path="res://objects/buttonReset.tscn" id="8_3j1j6"]
 [ext_resource type="PackedScene" uid="uid://cdrwnqegniito" path="res://objects/buttonStart.tscn" id="8_kdu40"]
+[ext_resource type="PackedScene" uid="uid://wde8njnem7y3" path="res://objects/ramp_tri.tscn" id="8_p2h2o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pjif"]
 texture = ExtResource("1_jpe7d")
@@ -29,8 +30,23 @@ size = Vector2(1408, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wuyd3"]
 size = Vector2(128, 512)
 
+[sub_resource type="Sky" id="Sky_fo3kq"]
+
+[sub_resource type="Environment" id="Environment_a1sdi"]
+background_mode = 3
+sky = SubResource("Sky_fo3kq")
+sky_custom_fov = 5.0
+fog_height = 2.45
+fog_height_density = 16.0
+adjustment_enabled = true
+adjustment_contrast = 1.59
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_cbe11"]
+dof_blur_far_enabled = true
+
+[sub_resource type="Compositor" id="Compositor_armn5"]
+
 [node name="GameWorld" type="Node2D"]
-position = Vector2(64, 64)
 script = ExtResource("1_pmqr6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -38,9 +54,9 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAAAAAAAAABAAMAAAABAAEAAAAAAAMAAAAAAAE
 tile_set = SubResource("TileSet_87org")
 
 [node name="Ball" parent="." instance=ExtResource("2_v00qj")]
-position = Vector2(320, 192)
-sleeping = false
-freeze = true
+position = Vector2(384, 256)
+mass = 2.0
+continuous_cd = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -76,18 +92,16 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("4_5gufp")]
-position = Vector2(320, 320)
-
 [node name="StaticBody2D3" parent="." instance=ExtResource("4_5gufp")]
-position = Vector2(320, 256)
+position = Vector2(-128, 320)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("7_go4in")]
-position = Vector2(384, 256)
+position = Vector2(-128, 192)
 
-[node name="StaticBody2D5" parent="." instance=ExtResource("4_5gufp")]
-position = Vector2(256, 256)
-rotation = -1.5708
+[node name="StaticBody2D7" parent="." instance=ExtResource("8_p2h2o")]
+position = Vector2(-128, 448)
 
-[node name="StaticBody2D6" parent="." instance=ExtResource("7_go4in")]
-position = Vector2(192, 256)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a1sdi")
+camera_attributes = SubResource("CameraAttributesPractical_cbe11")
+compositor = SubResource("Compositor_armn5")

@@ -12,7 +12,6 @@ func _process(delta: float) -> void:
 	self.disabled = !Global.isStateActive(Global.GameState.RUNNING)
 	if Input.is_action_just_released("ui_accept") :
 		Global.setState(Global.GameState.RUNNING)
-		Global.Ball.reset();
 	
 func _gui_input(event: InputEvent) -> void:
 	if event.is_pressed() && !self.disabled:

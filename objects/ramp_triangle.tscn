@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://f7f0nujna06f"]
+
+[ext_resource type="Script" path="res://scripts/ramp_parts.gd" id="1_s3gyw"]
+[ext_resource type="Texture2D" uid="uid://dypcypj3ahxhx" path="res://images/ramp_triangle.svg" id="2_m75o2"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_s3gyw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_m75o2")
+
+[node name="Ramp" type="Area2D" parent="."]
+position = Vector2(64, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ramp"]
+position = Vector2(-64, 0)
+polygon = PackedVector2Array(31, 32, -32, 32, -32, -32)
+
+[connection signal="body_entered" from="Ramp" to="." method="_on_ramp_body_entered"]
+[connection signal="body_exited" from="Ramp" to="." method="_on_ramp_body_exited"]
+[connection signal="mouse_entered" from="Ramp" to="." method="_on_ramp_mouse_entered"]
+[connection signal="mouse_exited" from="Ramp" to="." method="_on_ramp_mouse_exited"]

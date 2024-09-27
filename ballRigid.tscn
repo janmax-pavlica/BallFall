@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://coaclgdoiymfa" path="res://images/ball.svg" id="1_sp1ju"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hj1oe"]
-bounce = 0.2
+friction = 0.2
+bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4qi8f"]
 radius = 10.0499
 
 [node name="osBallRigid" type="RigidBody2D"]
+mass = 2.726
 physics_material_override = SubResource("PhysicsMaterial_hj1oe")
-sleeping = true
 script = ExtResource("1_3ujkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

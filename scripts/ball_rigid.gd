@@ -8,6 +8,7 @@ var position0 = Vector2.ZERO
 func _ready() -> void:
 	Global.Ball = self
 	position0 = self.global_position
+
 	self.freeze = true
 	print("_ready", position0)
 
@@ -16,8 +17,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	self.freeze = !Global.isStateActive(Global.GameState.RUNNING)
 
-func reset() -> void:
-	
+func reset() -> void : 
 	print("reset", position0)
 	PhysicsServer2D.body_set_state(
 	get_rid(),

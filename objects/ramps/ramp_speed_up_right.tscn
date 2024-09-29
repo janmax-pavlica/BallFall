@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ctbpgm861lwvi"]
 
-[ext_resource type="Script" path="res://objects/ramp_half_speed_up.gd" id="1_ji4tv"]
-[ext_resource type="Texture2D" uid="uid://beygwdgeq1vp0" path="res://images/ramp_half_speed_up.svg" id="2_24da8"]
+[ext_resource type="Script" path="res://scripts/ramp_half_speed_up.gd" id="1_f1jo3"]
+[ext_resource type="Texture2D" uid="uid://beygwdgeq1vp0" path="res://images/ramp_half_speed_up.svg" id="2_05pb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jln1v"]
 size = Vector2(64, 10)
@@ -14,7 +14,7 @@ size = Vector2(60, 10)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 position = Vector2(32, 32)
-script = ExtResource("1_ji4tv")
+script = ExtResource("1_f1jo3")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -27)
@@ -22,8 +22,7 @@ shape = SubResource("RectangleShape2D_jln1v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-rotation = 3.14159
-texture = ExtResource("2_24da8")
+texture = ExtResource("2_05pb6")
 
 [node name="Area2D" type="Area2D" parent="." groups=["droppable"]]
 

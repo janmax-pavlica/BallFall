@@ -31,12 +31,17 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-git-plugin/plugin.cfg", "res://addons/godot-rapier2d/plugin.cfg")
+enabled=PackedStringArray("res://addons/format_on_save/plugin.cfg", "res://addons/gdLinter/plugin.cfg", "res://addons/godot-git-plugin/plugin.cfg", "res://addons/godot-rapier2d/plugin.cfg")
 
 [global_group]
 
 droppable=""
+ramps=""
 
 [physics]
 
+common/physics_ticks_per_second=30
+common/max_physics_steps_per_frame=1
 2d/physics_engine="Rapier2D"
+2d/solver/contact_recycle_radius=0.32
+2d/solver/contact_max_allowed_penetration=0.01

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ny72jmgb453p"]
+[gd_scene load_steps=3 format=3 uid="uid://7bwd53b53kdy"]
 
 [ext_resource type="Script" path="res://scripts/ramp_parts.gd" id="1_g8w7r"]
 [ext_resource type="Texture2D" uid="uid://ca0u61g7rjeq1" path="res://images/ramp.svg" id="1_hk243"]

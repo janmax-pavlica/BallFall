@@ -7,13 +7,13 @@ var isDragging = false
 
 
 func _draw() -> void:
-	for n in 12:
+	for n in 6:
 		draw_line(
-			Vector2(128, 128 + 64 * n), Vector2(128 + 64 * 14, 128 + 64 * n), Color.DIM_GRAY, 1
+			Vector2(128, 128 + 128 * n), Vector2(128 + 12864 * 6, 128 + 128 * n), Color.DIM_GRAY, 1
 		)
-	for n in 14:
+	for n in 6:
 		draw_line(
-			Vector2(128 + 64 * n, 128), Vector2(128 + 64 * n, 128 + 64 * 14), Color.DIM_GRAY, 1
+			Vector2(128 + 128 * n, 128), Vector2(128 + 128 * n, 128 + 128 * 6), Color.DIM_GRAY, 1
 		)
 	#draw_multiline([Vector2(128,128),Vector2(128*12,128)],Color.RED,1)
 

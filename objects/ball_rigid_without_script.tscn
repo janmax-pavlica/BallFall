@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b76tpp3gk1jh7"]
+
+[ext_resource type="Texture2D" uid="uid://coaclgdoiymfa" path="res://images/ball.svg" id="2_ocds0"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hj1oe"]
+friction = 0.2
+bounce = 0.4
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qi8f"]
+radius = 10.0499
+
+[node name="osBallRigid" type="RigidBody2D" groups=["balls"]]
+mass = 2.726
+physics_material_override = SubResource("PhysicsMaterial_hj1oe")
+continuous_cd = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ocds0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4qi8f")

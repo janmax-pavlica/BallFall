@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://cp125ua744nko"]
 
 [ext_resource type="Script" path="res://scripts/wall_spawner.gd" id="1_b5ng2"]
-[ext_resource type="Texture2D" uid="uid://b1wwg0wxd8axd" path="res://images/background/wallWithSpawner.png" id="1_lwglq"]
+[ext_resource type="Texture2D" uid="uid://cnsqb7qk4mq7v" path="res://images/background/ball_tile_map.png" id="2_rra7n"]
 
 [node name="WallWithSpawner" type="Node2D"]
 script = ExtResource("1_b5ng2")
 
 [node name="WallWithSpawner" type="Sprite2D" parent="."]
-texture = ExtResource("1_lwglq")
+texture = ExtResource("2_rra7n")
 
 [node name="Area2D" type="Area2D" parent="."]
 

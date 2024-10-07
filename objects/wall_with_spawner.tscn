@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkwuwbsxng3rg"]
+
+[ext_resource type="TileSet" uid="uid://cqebkkio7qk6k" path="res://resources/tile_map.tres" id="1_eweod"]
+[ext_resource type="Script" path="res://scripts/wall_spawner.gd" id="1_htyju"]
+
+[node name="WallWithSpawner" type="Node2D"]
+script = ExtResource("1_htyju")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-8, -13)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0)
+tile_set = ExtResource("1_eweod")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

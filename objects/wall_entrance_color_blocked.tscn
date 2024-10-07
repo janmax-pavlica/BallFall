@@ -1,34 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf2xsm75idi7x"]
+[gd_scene load_steps=7 format=3 uid="uid://bf2xsm75idi7x"]
 
 [ext_resource type="Script" path="res://objects/wall_entrance_color_blocked.gd" id="1_pjx4i"]
-[ext_resource type="Texture2D" uid="uid://bsdjom4dkxtt8" path="res://images/background/wallWithHole.png" id="2_mi83b"]
+[ext_resource type="Texture2D" uid="uid://d3p5vk21djuyk" path="res://images/ball_tile_map.png" id="2_ttbt3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elcs0"]
+atlas = ExtResource("2_ttbt3")
+region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ft7xf"]
-size = Vector2(34, 128.5)
+size = Vector2(2.625, 31.7812)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_liftu"]
+size = Vector2(15, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ap74v"]
-size = Vector2(60, 20)
+size = Vector2(16, 14)
 
 [node name="WallEntranceColorBlocked" type="Node2D"]
 script = ExtResource("1_pjx4i")
 
 [node name="WallWithHole" type="Sprite2D" parent="."]
-texture = ExtResource("2_mi83b")
+texture = SubResource("AtlasTexture_elcs0")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-47, 0)
+position = Vector2(-15, 0)
 shape = SubResource("RectangleShape2D_ft7xf")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(47, 0)
-shape = SubResource("RectangleShape2D_ft7xf")
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_liftu")
 
 [node name="BallDestroyer" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BallDestroyer"]
-position = Vector2(0, -41)
+position = Vector2(-6, -3)
 shape = SubResource("RectangleShape2D_ap74v")
 
 [connection signal="body_entered" from="BallDestroyer" to="." method="_on_ball_destroyer_body_entered"]

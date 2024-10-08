@@ -12,7 +12,7 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnshk"]
 size = Vector2(60, 10)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[node name="RampSpeedUp" type="StaticBody2D"]
 position = Vector2(32, 32)
 script = ExtResource("1_f1jo3")
 

@@ -21,12 +21,12 @@ func _process(delta: float) -> void:
 func _on_speed_area_body_shape_entered(
 	body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int
 ) -> void:
-	#if( body_rid == Global.Ball.get_rid()):
-	speeding = true
+	if body.has_method("speed_up"):
+		body.speed_up(speedingValue)
 
 
 func _on_speed_area_body_shape_exited(
 	body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int
 ) -> void:
-	#if( body_rid == Global.Ball.get_rid()):
-	speeding = false
+	if body.has_method("speed_up"):
+		body.speed_up(0)
